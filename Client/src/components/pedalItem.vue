@@ -1,0 +1,29 @@
+<template>
+    <div id="pedal-item">
+        
+        <h3>Name: {{pedal.name}}</h3>
+        <p>Manufacturer {{pedal.manufacturer}}</p>
+        <p>EffectType {{pedal.type}}</p>
+
+        <button v-on:click="deletePedal">Delete Pedal</button>
+    </div>
+</template>
+<script>
+import { eventBus } from '@/main.js'
+import pedalServices from '@/services/pedalServices.js'
+
+    export default {
+        name: 'pedal-item',
+        props: ['pedal-item'],
+
+        methods: {
+            deletePedal(){
+                eventBus.$emit('pedal-deleted', this.pedal._id)
+            }
+        }
+    }
+</script>
+
+<style>
+
+</style>
