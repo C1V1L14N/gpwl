@@ -1,12 +1,12 @@
-use gpwl-db;
+use gpwl_db;
 db.dropDatabase();
 
-db.pedal-collection.insertMany([ 
+db.pedal_collection.insertMany([ 
     {
         Name: "Dunlop Original Cry Baby Wah Wah Pedal",
         Manufacturer: "Dunlop",
         Type: "Wah",
-        RetailPrice: 8000,
+        RetailPrice: 8000
     },
     {
         Name: "Blues Driver",
@@ -25,4 +25,5 @@ db.pedal-collection.insertMany([
         Manufacturer: "Keeley",
         Type: "Compressor",
         RetailPrice: 6500,
-    }]);
+    }
+]);

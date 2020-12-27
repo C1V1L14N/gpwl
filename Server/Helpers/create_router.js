@@ -48,6 +48,21 @@ router.post('/', (req, res) => {
     })
 })
 
+// CREATE MANY - POST -> /api/pedals
+// router.post('/', (req, res) => {
+//     const newData = req.body;
+//     collection
+//     .insertMany(newData)
+//     .then((result) => {
+//     res.json(result.ops[0])
+//     })
+//     .catch((error) => {
+//     console.log(error);
+//     res.status(500)
+//     res.json9({status: 500, error: error});
+//     })
+// })
+
 //DESTROY
 router.delete('/:id', (req, res) => {
     const id = req.params.id;
