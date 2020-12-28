@@ -1,9 +1,11 @@
 const baseURL = 'http://localhost:3000/api/pedals/'
 
 export default {
-    async getPedals() {
-        const res = await fetch(baseURL)
-        return await res.json()
+    getPedals() {
+        // const res = await fetch(baseURL)
+        // return await res.json()
+        return fetch(baseURL)
+            .then(returnItems => returnItems.json());
     },
 
     async postPedal(payload) {
@@ -20,5 +22,4 @@ export default {
             method: 'DELETE'
         })
     }
-
 }

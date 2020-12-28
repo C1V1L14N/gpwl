@@ -3,27 +3,27 @@ db.dropDatabase();
 
 db.pedal_collection.insertMany([ 
     {
-        Name: "Dunlop Original Cry Baby Wah Wah Pedal",
-        Manufacturer: "Dunlop",
-        Type: "Wah",
-        RetailPrice: 8000
+        name: "Dunlop Original Cry Baby Wah Wah Pedal",
+        manufacturer: "Dunlop",
+        type: "Wah",
+        retailPrice: 8000
     },
     {
-        Name: "Blues Driver",
-        Manufacturer: "Boss",
-        Type: "Saturation",
-        RetailPrice: 5000,
+        name: "Blues Driver",
+        manufacturer: "Boss",
+        type: "Saturation",
+        retailPrice: 5000,
     },
     {
-        Name: "DS-1 Distortion",
-        Manufacturer: "Boss",
-        Type: "Saturation",
-        RetailPrice: 5900,
+        name: "DS-1 Distortion",
+        manufacturer: "Boss",
+        type: "Saturation",
+        retailPrice: 5900,
     },        
     {
-        Name: "Compressor Plus",
-        Manufacturer: "Keeley",
-        Type: "Compressor",
-        RetailPrice: 6500,
+        name: "Compressor Plus",
+        manufacturer: "Keeley",
+        type: "Compressor",
+        retailPrice: 6500,
     }
 ]);

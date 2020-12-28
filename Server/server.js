@@ -1,7 +1,9 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
 const parser = require('body-parser');
 app.use(parser.json());
+app.use(cors());
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router.js')
 
