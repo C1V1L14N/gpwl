@@ -4,7 +4,7 @@
         <h3>Name: {{pedal.name}}</h3>
         <p>Manufacturer: {{pedal.manufacturer}}</p>
         <p>EffectType: {{pedal.type}}</p>
-        <p>Price: {{pedal.price}}</p>
+        <p>Price: {{pedal.retailPrice}}</p>
 
         <button v-on:click="deletePedal">Delete Pedal</button>
     </div>

@@ -12,18 +12,18 @@ db.pedal_collection.insertMany([
         name: "Blues Driver",
         manufacturer: "Boss",
         type: "Saturation",
-        retailPrice: 5000,
+        retailPrice: 5000
     },
     {
         name: "DS-1 Distortion",
         manufacturer: "Boss",
         type: "Saturation",
-        retailPrice: 5900,
+        retailPrice: 5900
     },        
     {
         name: "Compressor Plus",
         manufacturer: "Keeley",
         type: "Compressor",
-        retailPrice: 6500,
+        retailPrice: 6500
     }
 ]);

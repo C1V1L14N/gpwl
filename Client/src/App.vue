@@ -4,6 +4,7 @@
         
 
         <pedal-list :pedalList="pedalCollection"></pedal-list>
+        <add-pedal-form></add-pedal-form>
     </div>
 </template>
 <script>
@@ -35,7 +36,7 @@ export default {
         this.pedalCollection.splice(this.pedalCollection.indexOf(pedal), 1);
     });
 
-        eventBus.$on('pedal-add', (pedal) => {
+        eventBus.$on('pedal-added', (pedal) => {
         pedalServices.postPedal(pedal)
         .then(pedalWithId => this.pedalCollection.push(pedalWithId));
     });
