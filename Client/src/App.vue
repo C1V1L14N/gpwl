@@ -2,7 +2,6 @@
     <div id="app">
         <h1>Pedal Platform</h1>
         
-
         <pedal-list :pedalList="pedalCollection"></pedal-list>
         <add-pedal-form></add-pedal-form>
     </div>
