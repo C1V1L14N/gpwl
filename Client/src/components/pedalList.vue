@@ -25,6 +25,7 @@ export default {
 
 #pedal-item {
     display: flex;
+    flex-direction: column;
     border: solid black 5px;
     min-width: 150px;
     min-height: 150px;
