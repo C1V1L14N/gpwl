@@ -147,7 +147,7 @@ export default {
     font-size: 0;
   /* flip the order so we can use the + and ~ combinators */
     unicode-bidi: bidi-override;
-    direction: rtl;
+    direction: ltr;
   /* the hidden clearer */
 }
 #rating * {
