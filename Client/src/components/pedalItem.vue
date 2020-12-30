@@ -27,4 +27,8 @@ import pedalServices from '@/services/pedalServices.js'
 
 <style>
 
+#pedal-item > p{
+    margin: 2px;
+}
+
 </style>
