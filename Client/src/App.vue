@@ -9,7 +9,7 @@
         
         <pedal-list :pedalList="pedalCollection"></pedal-list>
         <add-pedal-form></add-pedal-form>
-        <!-- <pedal-board></pedal-board> -->
+        <pedal-board :pedalList="pedalCollection"></pedal-board>
     </div>
 </template>
 <script>

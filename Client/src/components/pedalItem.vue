@@ -5,6 +5,8 @@
         <p>Manufacturer: {{pedal.manufacturer}}</p>
         <p>EffectType: {{pedal.type}}</p>
         <p>Price: {{pedal.retailPrice}}</p>
+        <p>Rating: {{pedal.rating}}</p>
+        <p><img :src="pedal.image" alt="image of pedal" width="50" height="60"></p>
 
         <button v-on:click="deletePedal">Delete Pedal</button>
     </div>

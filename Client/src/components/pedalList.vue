@@ -24,8 +24,11 @@ export default {
 <style>
 
 #pedal-list {
+    display: flex;
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
     height: 100vh;
-    width: 100%;
+    /* width: 100%; */
 }
 
 #pedal-item {

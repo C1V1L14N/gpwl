@@ -1,12 +1,6 @@
-
 <template>
-  <div class="container mt-5">
-    <div class="row">
-    </div>
-    <div class="row mt-5">
-      <div class="col-3">
-        <div class="p-2 alert alert-secondary">
-          <h3>Back Log</h3>
+    <div id="pedal-board">
+    <h3>Back Log</h3>
           <!-- Backlog draggable component. Pass arrBackLog to list prop -->
           <draggable
             class="list-group kanban-column"
@@ -18,104 +12,102 @@
               v-for="element in arrBackLog"
               :key="element.name"
             >
-              {{ element.name }}
+              <img :src="element.image" alt="image of pedal" width="50" height="60">
             </div>
           </draggable>
-        </div>
-      </div>
-
-      <div class="col-3">
-        <div class="p-2 alert alert-primary">
-          <h3>In Progress</h3>
-          <!-- In Progress draggable component. Pass arrInProgress to list prop -->
-          <draggable
-            class="list-group kanban-column"
-            :list="arrInProgress"
-            group="tasks"
-          >
-            <div
-              class="list-group-item"
-              v-for="element in arrInProgress"
-              :key="element.name"
-            >
-              {{ element.name }}
-            </div>
-          </draggable>
-        </div>
-      </div>
-
-      <div class="col-3">
+    <div class="col-3">
         <div class="p-2 alert alert-warning">
           <h3>Testing</h3>
           <!-- Testing draggable component. Pass arrTested to list prop -->
           <draggable
             class="list-group kanban-column"
-            :list="arrTested"
+            :list="pedalList"
             group="tasks"
           >
             <div
               class="list-group-item"
-              v-for="element in arrTested"
+              v-for="element in pedalList"
               :key="element.name"
             >
-              {{ element.name }}
-            </div>
-          </draggable>
-        </div>
-      </div>
-
-      <div class="col-3">
-        <div class="p-2 alert alert-success">
-          <h3>Done</h3>
-          <!-- Done draggable component. Pass arrDone to list prop -->
-          <draggable
-            class="list-group kanban-column"
-            :list="arrDone"
-            group="tasks"
-          >
-            <div
-              class="list-group-item"
-              v-for="element in arrDone"
-              :key="element.name"
-            >
-              {{ element.name }}
+              <img :src="element.image" alt="image of pedal" width="50" height="60">
             </div>
           </draggable>
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
-//import draggable
+import pedalItem from './pedalItem.vue'
 import draggable from "vuedraggable";
+
 export default {
-  name: "kanban-board",
-  components: {
-    //import draggable as a component
-    draggable
-  },
-  data() {
+    name: 'pedal-board',
+    props: ['pedalList', 'pedal'],
+    components: {
+        'pedal-item': pedalItem,
+        draggable
+    },
+    data() {
     return {
+      // for new tasks
+      newTask: "",
       // 4 arrays to keep track of our 4 statuses
       arrBackLog: [
-        { name: "Code Sign Up Page" },
-        { name: "Test Dashboard" },
-        { name: "Style Registration" },
-        { name: "Help with Designs" }
+        // { name: "Code Sign Up Page" },
+        // { name: "Test Dashboard" },
+        // { name: "Style Registration" },
+        // { name: "Help with Designs" }
       ],
-      arrInProgress: [],
-      arrTested: [],
-      arrDone: []
-    };
-  }
-};
+    //   arrTested: [],
+    //   pedalList,
+      draggablePedalList: []
+      }},
+  mounted() {
+      this.makeDraggablePedalList(pedalList);
+  },
+  methods: {
+    //add new tasks method
+    add: function() {
+      if (this.newTask) {
+        this.arrBackLog.push({ name: this.newTask });
+        this.newTask = "";
+      }
+    },
+    makeDraggablePedalList(array) {
+        array.forEach(pedal => {
+            this.draggablePedalList.push(pedal)
+        });
+            
+        }
+               
+        
+            
+        }
+    }
+
 </script>
 
 <style>
-/* light stylings for the kanban columns */
-.kanban-column {
-  min-height: 300px;
+
+#pedal-list {
+    height: 100vh;
+    width: 100%;
 }
+
+#pedal-item {
+    display: flex;
+    flex-direction: column;
+    border: solid black 5px;
+    max-width: 200px;
+    max-height: auto;
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.col-3 {
+    display: flex;
+    flex-flow: row wrap;
+}
+
 </style>
