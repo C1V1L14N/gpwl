@@ -1,6 +1,11 @@
 <template>
     <div id="app">
         <h1>Pedal Platform</h1>
+        <nav id="nav">
+            <a href="http://">My Pedals</a>
+            <a href="http://">Find Pedals</a>
+            <a href="http://">Board Planner</a>
+        </nav>
         
         <pedal-list :pedalList="pedalCollection"></pedal-list>
         <add-pedal-form></add-pedal-form>
@@ -60,5 +65,37 @@ export default {
 </script>
 
 <style>
+
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+#app {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+h1 {
+    margin: 10px;
+    font-size: 50px;
+}
+
+#nav > a {
+    padding: 5px;
+}
+
+add-pedal-form {
+    justify-content: left;
+}
+
+pedal-list {
+    justify-content: center;
+}
 
 </style>
