@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "sass-loader": "^10.1.0",
     "v-movable": "^0.3.2",
+    "v-tooltip": "^2.1.1",
     "vue": "^2.6.11",
     "vue-draggable": "^2.0.6",
     "vue-feather-icon": "^1.2.0",

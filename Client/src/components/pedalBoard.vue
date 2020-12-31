@@ -16,7 +16,7 @@
                         :key="pedal.name"
                         :list="draggablePedalList"
                     >
-                        <input type="image" :src="pedal.image" alt="image of pedal" width="50" height="60" v-on:click="addToOnPedalList(pedal)">
+                        <input type="image" :src="pedal.image" alt="image of pedal" width="50" height="60" v-tooltip="pedal.name + '- Click to add to pedal board'" title="Click to add to pedal board" v-on:click="addToOnPedalList(pedal)">
                     </div>
                 </div>
             <h3>Pedal Board</h3>
@@ -30,7 +30,7 @@
               :key="pedal.name"
               :grid="20"
             >
-              <img :src="pedal.image" alt="image of pedal" width="50" height="60">
+              <img :src="pedal.image" alt="image of pedal" width="50" height="60" v-tooltip="'Click and hold to move around pedal board'">
             
             </movable>
       
@@ -90,6 +90,7 @@ export default {
 .list-group-pedal-row {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
 .list-group-pedal-board {
