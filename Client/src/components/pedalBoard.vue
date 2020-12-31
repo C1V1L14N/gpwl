@@ -1,6 +1,27 @@
 <template>
     <div id="pedal-board">
-    <h3>Back Log</h3>
+    
+    <div class="col-3">
+        <div class="p-2 alert alert-warning">
+            <button v-on:click="makeDraggablePedalList">Button</button>
+          <h3>Testing</h3>
+          <!-- Testing draggable component. Pass arrTested to list prop -->
+          <draggable
+            class="list-group kanban-column"
+            :list="draggablePedalList"
+            group="tasks"
+          >
+            <div
+              class="list-group-item"
+              v-for="element in draggablePedalList"
+              :key="element.name"
+            >
+              <img :src="element.image" alt="image of pedal" width="50" height="60">
+            </div>
+          </draggable>
+        </div>
+        </div>
+        <h3>Back Log</h3>
           <!-- Backlog draggable component. Pass arrBackLog to list prop -->
           <draggable
             class="list-group kanban-column"
@@ -15,25 +36,7 @@
               <img :src="element.image" alt="image of pedal" width="50" height="60">
             </div>
           </draggable>
-    <div class="col-3">
-        <div class="p-2 alert alert-warning">
-          <h3>Testing</h3>
-          <!-- Testing draggable component. Pass arrTested to list prop -->
-          <draggable
-            class="list-group kanban-column"
-            :list="pedalList"
-            group="tasks"
-          >
-            <div
-              class="list-group-item"
-              v-for="element in pedalList"
-              :key="element.name"
-            >
-              <img :src="element.image" alt="image of pedal" width="50" height="60">
-            </div>
-          </draggable>
-        </div>
-      </div>
+      
     </div>
 </template>
 
@@ -64,7 +67,7 @@ export default {
       draggablePedalList: []
       }},
   mounted() {
-      this.makeDraggablePedalList(pedalList);
+      this.makeDraggablePedalList();
   },
   methods: {
     //add new tasks method
@@ -74,8 +77,8 @@ export default {
         this.newTask = "";
       }
     },
-    makeDraggablePedalList(array) {
-        array.forEach(pedal => {
+    makeDraggablePedalList() {
+        this.pedalList.forEach(pedal => {
             this.draggablePedalList.push(pedal)
         });
             
