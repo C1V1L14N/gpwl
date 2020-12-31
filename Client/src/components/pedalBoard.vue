@@ -6,19 +6,22 @@
             <button v-on:click="makeDraggablePedalList">Button</button>
           <h3>Pedals</h3>
           <!-- Testing draggable component. Pass arrTested to list prop -->
-          <draggable
+          <div
             class="list-group-pedal-row"
             :list="draggablePedalList"
+            :grid="20"
             group="tasks"
           >
-            <div
+            <movable
               class="list-group-item"
               v-for="element in draggablePedalList"
               :key="element.name"
+              :list="draggablePedalList"
+              :grid="20"
             >
               <img :src="element.image" alt="image of pedal" width="50" height="60">
-            </div>
-          </draggable>
+            </movable>
+          </div>
         </div>
         </div>
         <h3>Pedal Board</h3>
@@ -42,7 +45,7 @@
 
 <script>
 import pedalItem from './pedalItem.vue'
-import draggable from "vuedraggable";
+import draggable from 'vuedraggable';
 
 export default {
     name: 'pedal-board',
@@ -86,7 +89,11 @@ export default {
                
         
             
-        }
+        },
+    options: {
+        dropzoneSelector: '.list-group-pedal-board',
+        showDropzoneAreas: true
+    }
     }
 
 </script>
