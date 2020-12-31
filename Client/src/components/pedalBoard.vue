@@ -4,10 +4,10 @@
     <div class="col-3">
         <div class="p-2 alert alert-warning">
             <button v-on:click="makeDraggablePedalList">Button</button>
-          <h3>Testing</h3>
+          <h3>Pedals</h3>
           <!-- Testing draggable component. Pass arrTested to list prop -->
           <draggable
-            class="list-group kanban-column"
+            class="list-group-pedal-row"
             :list="draggablePedalList"
             group="tasks"
           >
@@ -21,10 +21,10 @@
           </draggable>
         </div>
         </div>
-        <h3>Back Log</h3>
+        <h3>Pedal Board</h3>
           <!-- Backlog draggable component. Pass arrBackLog to list prop -->
           <draggable
-            class="list-group kanban-column"
+            class="list-group-pedal-board"
             :list="arrBackLog"
             group="tasks"
           >
@@ -108,9 +108,17 @@ export default {
     min-height: 150px;
 }
 
-.col-3 {
+.list-group-pedal-row {
     display: flex;
     flex-flow: row wrap;
+}
+
+.list-group-pedal-board {
+    display: flex;
+    flex-flow: row wrap;
+    background-image: url("https://www.gak.co.uk/cdn-cgi/image/fit=scale-down,width=645,height=280/https://58eca9fdf76150b92bfa-3586c28d09a33a8c605ed79290ca82aa.ssl.cf3.rackcdn.com/pedaltrain-metro-16-pedalboard-gig-bag-327453.jpg");
+    height: 280px;
+    width: 500px;
 }
 
 </style>
