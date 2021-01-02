@@ -102,11 +102,11 @@ export default {
     display: flex;
     flex-flow: row wrap;
     /* background-image: url("https://www.gak.co.uk/cdn-cgi/image/fit=scale-down,width=645,height=280/https://58eca9fdf76150b92bfa-3586c28d09a33a8c605ed79290ca82aa.ssl.cf3.rackcdn.com/pedaltrain-metro-16-pedalboard-gig-bag-327453.jpg"); */
-    background-image: url('/../static/images/basic_pedalBoard.png');
+    background-image: url('/basic_pedalBoard.png');
     /* Client/src/static/images/basic_pedalBoard.png
     Client/src/components/pedalBoard.vue */
-    /* height: 256px;
-    width: 640px; */
+    height: 256px;
+    width: 640px;
 }
 
 .list-group-item {
