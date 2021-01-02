@@ -16,7 +16,7 @@
                         :key="pedal.name"
                         :list="draggablePedalList"
                     >
-                        <input type="image" :src="pedal.image" alt="image of pedal" width="50" height="60" v-tooltip="pedal.name + '- Click to add to pedal board'" title="Click to add to pedal board" v-on:click="addToOnPedalList(pedal)">
+                        <input type="image" :src="pedal.image" alt="image of pedal" width="50" height="60" v-tooltip="pedal.name + '- Click to add to pedal board'" title="Click to add to pedal board" v-on:click="makeToScale(pedal), addToOnPedalList(pedal)">
                     </div>
                 </div>
             <h3>Pedal Board</h3>
@@ -30,7 +30,7 @@
               :key="pedal.name"
               :grid="20"
             >
-              <img :src="pedal.image" alt="image of pedal" width="50" height="60" v-tooltip="'Click and hold to move around pedal board'">
+              <img :src="pedal.image" alt="image of pedal" :width="pedal.width" :height="pedal.depth" v-tooltip="pedal.width + 'Click and hold to move around pedal board'">
             
             </movable>
       
@@ -62,9 +62,14 @@ export default {
             this.draggablePedalList.push(pedal)
             });     
         },
+    makeToScale(pedal){
+        pedal.width = Math.round((pedal.width * 3.7795275591)/3)
+        pedal.depth = Math.round((pedal.depth * 3.7795275591)/3)
+        },
     addToOnPedalList(pedal){
-      this.onBoardList.push(pedal);
-        }    
+        this.onBoardList.push(pedal);
+        }
+    
     }
 }
 
@@ -96,9 +101,12 @@ export default {
 .list-group-pedal-board {
     display: flex;
     flex-flow: row wrap;
-    background-image: url("https://www.gak.co.uk/cdn-cgi/image/fit=scale-down,width=645,height=280/https://58eca9fdf76150b92bfa-3586c28d09a33a8c605ed79290ca82aa.ssl.cf3.rackcdn.com/pedaltrain-metro-16-pedalboard-gig-bag-327453.jpg");
-    height: 280px;
-    width: 500px;
+    /* background-image: url("https://www.gak.co.uk/cdn-cgi/image/fit=scale-down,width=645,height=280/https://58eca9fdf76150b92bfa-3586c28d09a33a8c605ed79290ca82aa.ssl.cf3.rackcdn.com/pedaltrain-metro-16-pedalboard-gig-bag-327453.jpg"); */
+    background-image: url('/../static/images/basic_pedalBoard.png');
+    /* Client/src/static/images/basic_pedalBoard.png
+    Client/src/components/pedalBoard.vue */
+    /* height: 256px;
+    width: 640px; */
 }
 
 .list-group-item {
