@@ -1,100 +1,77 @@
 <template>
     <div id="pedal-board">
-    
-    <div class="col-3">
-        <div class="p-2 alert alert-warning">
-            <button v-on:click="makeDraggablePedalList">Button</button>
-          <h3>Pedals</h3>
-          <!-- Testing draggable component. Pass arrTested to list prop -->
-          <div
-            class="list-group-pedal-row"
-            :list="draggablePedalList"
-            :grid="20"
-            group="tasks"
-          >
+        <section class="pedal-select-container">
+            <label for="pedal-select">Select a Pedal:</label>
+            <select id="pedal-select" v-model="selectedPedal">
+                <option disabled value="">Select a Pedal</option>
+                <option v-for="pedal in draggablePedalList" :key="pedal.name" :value="pedal" v-on:select="makeDraggablePedalList">{{pedal.name}}</option>
+            </select>
+        </section>
+            <button v-on:click="makeDraggablePedalList">Add fave pedals</button>
+            <h3>Pedals</h3>
+                <div class="list-group-pedal-row">
+                    <div
+                        class="list-group-item"
+                        v-for="pedal in draggablePedalList"
+                        :key="pedal.name"
+                        :list="draggablePedalList"
+                    >
+                        <input type="image" :src="pedal.image" alt="image of pedal" width="50" height="60" v-tooltip="pedal.name + '- Click to add to pedal board'" title="Click to add to pedal board" v-on:click="makeToScale(pedal), addToOnPedalList(pedal)">
+                    </div>
+                </div>
+            <h3>Pedal Board</h3>
+                <div
+                    class="list-group-pedal-board"
+                    :list="onBoardList"
+                >
+                </div>
             <movable
-              class="list-group-item"
-              v-for="element in draggablePedalList"
-              :key="element.name"
-              :list="draggablePedalList"
+              v-for="pedal in onBoardList"
+              :key="pedal.name"
               :grid="20"
             >
-              <img :src="element.image" alt="image of pedal" width="50" height="60">
+              <img :src="pedal.image" alt="image of pedal" :width="pedal.width" :height="pedal.depth" v-tooltip="pedal.width + 'Click and hold to move around pedal board'">
+            
             </movable>
-          </div>
-        </div>
-        </div>
-        <h3>Pedal Board</h3>
-          <!-- Backlog draggable component. Pass arrBackLog to list prop -->
-          <draggable
-            class="list-group-pedal-board"
-            :list="arrBackLog"
-            group="tasks"
-          >
-            <div
-              class="list-group-item"
-              v-for="element in arrBackLog"
-              :key="element.name"
-            >
-              <img :src="element.image" alt="image of pedal" width="50" height="60">
-            </div>
-          </draggable>
       
     </div>
 </template>
 
 <script>
 import pedalItem from './pedalItem.vue'
-import draggable from 'vuedraggable';
 
 export default {
     name: 'pedal-board',
     props: ['pedalList', 'pedal'],
     components: {
-        'pedal-item': pedalItem,
-        draggable
+        'pedal-item': pedalItem
     },
     data() {
     return {
-      // for new tasks
-      newTask: "",
-      // 4 arrays to keep track of our 4 statuses
-      arrBackLog: [
-        // { name: "Code Sign Up Page" },
-        // { name: "Test Dashboard" },
-        // { name: "Style Registration" },
-        // { name: "Help with Designs" }
-      ],
-    //   arrTested: [],
-    //   pedalList,
-      draggablePedalList: []
-      }},
+      draggablePedalList: [],
+      onBoardList: [],
+      selectedPedal: null
+        }
+      },
   mounted() {
       this.makeDraggablePedalList();
-  },
+            },
   methods: {
-    //add new tasks method
-    add: function() {
-      if (this.newTask) {
-        this.arrBackLog.push({ name: this.newTask });
-        this.newTask = "";
-      }
-    },
     makeDraggablePedalList() {
         this.pedalList.forEach(pedal => {
             this.draggablePedalList.push(pedal)
-        });
-            
-        }
-               
-        
-            
+            });     
         },
-    options: {
-        dropzoneSelector: '.list-group-pedal-board',
-        showDropzoneAreas: true
+    makeToScale(pedal){
+        pedal.width = Math.round((pedal.width * 3.7795275591)/3)
+        pedal.depth = Math.round((pedal.depth * 3.7795275591)/3)
+        },
+    addToOnPedalList(pedal){
+        this.onBoardList.push(pedal);
+        }
+    
     }
-    }
+}
 
 </script>
 
@@ -105,14 +82,23 @@ export default {
 .list-group-pedal-row {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
 .list-group-pedal-board {
     display: flex;
     flex-flow: row wrap;
-    background-image: url("https://www.gak.co.uk/cdn-cgi/image/fit=scale-down,width=645,height=280/https://58eca9fdf76150b92bfa-3586c28d09a33a8c605ed79290ca82aa.ssl.cf3.rackcdn.com/pedaltrain-metro-16-pedalboard-gig-bag-327453.jpg");
-    height: 280px;
-    width: 500px;
+    /* background-image: url("https://www.gak.co.uk/cdn-cgi/image/fit=scale-down,width=645,height=280/https://58eca9fdf76150b92bfa-3586c28d09a33a8c605ed79290ca82aa.ssl.cf3.rackcdn.com/pedaltrain-metro-16-pedalboard-gig-bag-327453.jpg"); */
+    background-image: url('/basic_pedalBoard.png');
+    /* Client/src/static/images/basic_pedalBoard.png
+    Client/src/components/pedalBoard.vue */
+    height: 256px;
+    width: 640px;
+}
+
+.list-group-item {
+    display: flex;
+    flex-flow: row wrap;
 }
 
 </style>
