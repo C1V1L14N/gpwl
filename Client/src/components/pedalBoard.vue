@@ -26,12 +26,12 @@
                 >
                 </div>
             <movable
-              v-for="pedal in onBoardList"
-              :key="pedal._id"
+              v-for="(pedal, index) in onBoardList"
+              :key="index"
               :grid="1"
             >
             <div class="img-wrap">
-                <button class="close" @click="deleteFromPedalBoard(pedal._id)" v-tooltip="'Click to delete'">&times;</button>
+                <button class="close" @click="deleteFromPedalBoard(index)" v-tooltip="'Click to delete'">&times;</button>
             </div>
                 <img :src="pedal.image" alt="image of pedal" :width="pedal.width" :height="pedal.depth" v-tooltip="'Click and hold to move around pedal board'">
             </movable>
@@ -74,8 +74,8 @@ export default {
     addToOnPedalList(pedal){
         this.onBoardList.push(pedal);
         },
-    deleteFromPedalBoard(pedal){
-        this.onBoardList.splice(pedal,1)
+    deleteFromPedalBoard(index){
+        this.onBoardList.splice(index,1)
     }
     
     }
