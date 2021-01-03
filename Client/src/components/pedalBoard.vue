@@ -27,12 +27,16 @@
                 </div>
             <movable
               v-for="pedal in onBoardList"
-              :key="pedal.name"
+              :key="pedal._id"
               :grid="1"
             >
-              <img :src="pedal.image" alt="image of pedal" :width="pedal.width" :height="pedal.depth" v-tooltip="'Click and hold to move around pedal board'">
-            
+            <div class="img-wrap">
+                <button class="close" @click="deleteFromPedalBoard(pedal._id)" v-tooltip="'Click to delete'">&times;</button>
+            </div>
+                <img :src="pedal.image" alt="image of pedal" :width="pedal.width" :height="pedal.depth" v-tooltip="'Click and hold to move around pedal board'">
             </movable>
+            
+            
             <div id="pedal-board-itself">
             </div>
     </div>
@@ -69,7 +73,10 @@ export default {
         },
     addToOnPedalList(pedal){
         this.onBoardList.push(pedal);
-        }
+        },
+    deleteFromPedalBoard(pedal){
+        this.onBoardList.splice(pedal,1)
+    }
     
     }
 }
@@ -122,6 +129,17 @@ export default {
 .list-group-item {
     display: flex;
     flex-flow: row wrap;
+}
+
+.img-wrap {
+    position: relative;
+}
+
+.img-wrap .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
 }
 
 </style>
