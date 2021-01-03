@@ -93,6 +93,7 @@ export default {
 #add-pedal-form {
     margin: 10px;
     display: block;
+    border-radius: 10px;
 }
 
 .form-input > #name {
