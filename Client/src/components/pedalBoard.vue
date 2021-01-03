@@ -85,20 +85,7 @@ export default {
 
 <style>
 
-#pedal-list {
-    height: 100vh;
-    width: 100%;
-}
 
-#pedal-item {
-    display: flex;
-    flex-direction: column;
-    border: solid black 5px;
-    max-width: 200px;
-    max-height: auto;
-    min-width: 150px;
-    min-height: 150px;
-}
 
 .list-group-pedal-row {
     display: flex;

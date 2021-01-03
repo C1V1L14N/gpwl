@@ -1,14 +1,10 @@
 <template>
     <div id="pedal-item">
-
-        <h3>Name: {{pedal.name}}</h3>
-        <p>Manufacturer: {{pedal.manufacturer}}</p>
-        <p>EffectType: {{pedal.type}}</p>
-        <p>Price: {{pedal.retailPrice}}</p>
-        <p>Rating: {{pedal.rating}}</p>
-        <p><img :src="pedal.image" alt="image of pedal" width="50" height="60"></p>
-
-        <button v-on:click="deletePedal">Delete Pedal</button>
+        <ul>
+            <li v-for="pedal in pedalList" :key="pedal.name">
+                <button class="pedal-item"></button>
+            </li>
+        </ul>
     </div>
 </template>
 <script>
@@ -17,20 +13,19 @@ import pedalServices from '@/services/pedalServices.js'
 
     export default {
         name: 'pedal-item',
-        props: ['pedal'],
+        props: ['pedal', 'pedalList'],
 
         methods: {
-            deletePedal(){
-                eventBus.$emit('pedal-deleted', this.pedal)
-            }
+            
         }
     }
 </script>
 
 <style>
 
-#pedal-item > p{
+#pedal-item > p {
     margin: 2px;
+    width: 100%;
 }
 
 </style>
