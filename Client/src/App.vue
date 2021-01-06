@@ -5,6 +5,7 @@
             <nav id="nav">
                 <img id="pedal-icon" src="../src/assets/nav/pedal2.png" alt="pedal icon">
                 <img id="pedalboard-icon" src="../src/assets/nav/pedalboard@2x.png" alt="pedalboard-icon">
+                <p>About</p>
             </nav>
         </header>
         
@@ -97,7 +98,7 @@ body {
     display: flex;
     flex-direction: column;
     /* align-items: center; */
-    background-image: url(../src/assets/gpwl-backdrop.jpg);
+    background-image: url(../client/src/assets/4k-bg-2.jpg);
     background-size: 100%;
 }
 
