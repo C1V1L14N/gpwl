@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <header>
-            <h1>The PedaList</h1>
+            <h1>Pedaledal</h1>
             <nav id="nav">
                 <img id="pedal-icon" src="../src/assets/nav/pedal2.png" alt="pedal icon">
                 <img id="pedalboard-icon" src="../src/assets/nav/pedalboard@2x.png" alt="pedalboard-icon">
@@ -98,7 +98,7 @@ body {
     display: flex;
     flex-direction: column;
     /* align-items: center; */
-    background-image: url(../client/src/assets/4k-bg-2.jpg);
+    background-image: url(../src/assets/4k-bg-2.jpg);
     background-size: 100%;
 }
 
@@ -145,7 +145,7 @@ h1 {
 
     background: rgba( 255, 255, 255, 0.1 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.1 );
-    backdrop-filter: blur( 4px );
+    backdrop-filter: blur( 0.1px );
     -webkit-backdrop-filter: blur( 5.5px );
     border-radius: 10px;
 }
@@ -154,7 +154,7 @@ h1 {
     width: 33%;
     background: rgba( 255, 255, 255, 0.1 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.1 );
-    backdrop-filter: blur( 4px );
+    backdrop-filter: blur( 0.1px );
     -webkit-backdrop-filter: blur( 5.5px );
     border-radius: 10px;
 }
